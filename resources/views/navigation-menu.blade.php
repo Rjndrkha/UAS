@@ -160,7 +160,7 @@
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
 
-            @if(Auth::user()->roles == 'ADMIN')
+            @if(Auth::user()->roles == 'USER')
                 <x-jet-responsive-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
                     {{ __('Product') }}
                 </x-jet-responsive-nav-link>
