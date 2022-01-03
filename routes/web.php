@@ -28,7 +28,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function() {
     Route::name('dashboard.')->prefix('dashboard')->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('index');
 
-        Route::middleware(['user'])->group(function() {
+        Route::middleware(['admin'])->group(function() {
             Route::resource('product', ProductController::class);
             Route::resource('category', ProductCategoryController::class);
             Route::resource('product.gallery', ProductGalleryController::class)->shallow()->only([
