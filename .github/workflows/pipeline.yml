@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - '*'
+  workflow_dispatch:
+  
 jobs:
   build:
     name: Build and Deploy
@@ -34,11 +36,12 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
+          
       - name: 'Build and push'
         run: |
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/laravel .
-          docker push ${{ secrets.DOCKERHUB_USERNAME}}/laravel
+          docker push ${{ secrets.DOCKERHUB_USERNAME}}/laravel 
+
       - name: 'Write config'
         run: |
           mkdir ~/.oci
