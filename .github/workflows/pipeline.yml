@@ -39,8 +39,8 @@ jobs:
           
       - name: 'Build and push'
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/laravel2 .
-          docker push ${{ secrets.DOCKERHUB_USERNAME}}/laravel2 
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/laravel .
+          docker push ${{ secrets.DOCKERHUB_USERNAME}}/laravel 
 
       - name: 'Write config'
         run: |
